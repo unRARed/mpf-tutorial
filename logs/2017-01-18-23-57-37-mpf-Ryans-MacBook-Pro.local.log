@@ -1,0 +1,8 @@
+2017-01-18 23:57:37,702 : INFO : Machine : Mission Pinball Framework Core Engine v0.32.6
+2017-01-18 23:57:37,703 : INFO : Machine : Machine path: /Users/unrared/Repos/pinball/mpf-tutorial
+2017-01-18 23:57:38,100 : INFO : Machine : Loading config from original files
+2017-01-18 23:57:38,209 : INFO : Machine : Machine config file #1: /Users/unrared/Repos/pinball/mpf-tutorial/config/config
+2017-01-18 23:57:38,212 : INFO : Machine : Config file cache created: /var/folders/rm/0n7l4wf54qb5822k15b5gly00000gn/T/b4319f1ae60d75a57f65e00df2d3609bconfig
+2017-01-18 23:57:38,334 : INFO : Mode.attract : Mode Starting. Priority: 10
+2017-01-18 23:58:10,683 : INFO : Machine : Shutting down...
+2017-01-18 23:58:10,684 : INFO : root : MPF run loop ended.
