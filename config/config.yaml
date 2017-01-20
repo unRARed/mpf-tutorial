@@ -1,6 +1,6 @@
 #config_version=4
 
-# MPF-MC (media controller)
+# VGA display/slides via MPF-MC (media controller)
 displays:
   window:
     width: 800
@@ -22,33 +22,35 @@ slides:
 slide_player:
   init_done: welcome_slide
   mode_attract_started: attract_started
-# External control (not at machine itself)
-keyboard:
-  z:
-    switch: s_left_flipper
-  "/":
-    switch: s_right_flipper
-# Hardware
+
+# Physical Hardware Mappings
 switches:
   s_left_flipper:
-    number:
+    number: 0 # configure actual switch id
     tags: left_flipper
   s_right_flipper:
-    number:
+    number: 1 # configure actual switch id
     tags: right_flipper
+  # "classic" drain setting for most systems before 1980
+  s_drain:
+    number: 2 # configure actual switch id
 coils:
   c_flipper_left_main:
-    number: 0
+    number: 0 # configure actual switch id
     pulse_ms: 20 # movement speed of flipper - lower is faster
   c_flipper_left_hold:
-    number: 1
+    number: 1 # configure actual switch id
     allow_enable: true
   c_flipper_right_main:
-    number: 2
+    number: 2 # configure actual switch id
     pulse_ms: 20
   c_flipper_right_hold:
-    number: 3
+    number: 3 # configure actual switch id
     allow_enable: true
+  # "classic" drain setting for most systems before 1980
+  c_drain_eject:
+    number: 4 # configure actual switch id
+    pulse_ms: 20
 flippers:
   left_flipper:
     main_coil: c_flipper_left_main
@@ -60,3 +62,25 @@ flippers:
     hold_coil: c_flipper_right_hold
     activation_switch: s_right_flipper
     enable_events: machine_reset_phase_3 #temp to test flippers
+# anything that holds/releases balls is a "ball device"
+ball_devices:
+  bd_drain:
+    ball_switches: s_drain
+    eject_coil: c_drain_eject
+    eject_targets: bd_plunger_lane
+    tags: drain, home, trough
+  # bd_plunger is a placeholder just so the trough's eject_targets are valid
+  bd_plunger_lane:
+    tags: ball_add_live
+    mechanical_eject: true
+keyboard:
+  # External control (not at machine itself)
+  d:
+    switch: s_drain
+  z:
+    switch: s_left_flipper
+  "/":
+    switch: s_right_flipper
+# Virtual device settings
+virtual_platform_start_active_switches:
+  s_drain
