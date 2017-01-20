@@ -22,6 +22,12 @@ slides:
 slide_player:
   init_done: welcome_slide
   mode_attract_started: attract_started
+# External control (not at machine itself)
+keyboard:
+  z:
+    switch: s_left_flipper
+  "/":
+    switch: s_right_flipper
 # Hardware
 switches:
   s_left_flipper:
