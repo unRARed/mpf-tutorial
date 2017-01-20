@@ -1,5 +1,28 @@
 #config_version=4
 
+# MPF-MC (media controller)
+displays:
+  window:
+    width: 800
+    height: 600
+slides:
+  welcome_slide:
+    widgets:
+      - type: text
+        text: PINBALL!
+        font_size: 50
+        color: red
+      - type: rectangle
+        width: 240
+        height: 60
+  attract_started:
+    widgets:
+      - text: ATTRACT MODE
+        type: text
+slide_player:
+  init_done: welcome_slide
+  mode_attract_started: attract_started
+# Hardware
 switches:
   s_left_flipper:
     number:
